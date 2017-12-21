@@ -53,4 +53,4 @@ def faren2celc(degrees):
 def cels2far(degrees):
     return (degrees*1.8 + 32)
 
-print(cels2far(36.6))
+print(cels2far(37))
