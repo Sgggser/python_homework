@@ -9,5 +9,5 @@ def get_max_digit(number): # returns int
     print(lst)
     return int(max(lst))
 
-number = random.randint(10 ** 11, 10 **12)
+number = random.randint(10 ** 11, 10 **12 - 1)
 print(get_max_digit(number))
