@@ -1,23 +1,19 @@
+import string
 
 
-def encode(str_to_encode, encr_table): # returns enсoded string
-    new_string = str_to_encode.lower()
+def encode(str_to_encode): # returns enсoded string
+    encr_table = string.ascii_lowercase + string.digits
     length = len(encr_table)
-    for letter in new_string:
-        if letter in encr_table:
-            idx = encr_table.index(letter) + 5
-            if idx >= length:
-                idx -= length
-            new_letter = encr_table[idx]
+    new_string = ''
+    for letter in str_to_encode.lower():
+        if letter not in encr_table:
+            new_string += letter
         else:
-            new_letter = letter
-        new_string = new_string.replace(letter, new_letter)
-
+            new_string += encr_table[(encr_table.index(letter) + 5) % length]
     return new_string
 
 
 str_to_encode = input('Введите строку:')
-encr_table = [chr(i) for i in range(ord('a'), ord('z')+1)] + [str(i) for i in range(10)]
 
-print(encode(str_to_encode, encr_table))
+print(encode(str_to_encode))
 
